@@ -1,0 +1,17 @@
+@0001000
+34001111 //		ori r[0], r[0], 0x1111;		r[0] = 0xffff
+00000901 //		sll r[1], r[0], 0x0004;		r[1] = 0x11110
+6c000000 //   	push;				push current r[0] value
+74000002 //		muli r[0], r[0], 0x0002;	r[0] *= 2
+10010001 //		beq  r[0], r[1], 0x0001;	if r[0]==r[1]: skip next line
+08001002 //		jmp loop;			jmp to 0x1002
+6c000000 //		push;				push current r[0] value
+0C00100C //		jal once;			jmp to 0x100b
+6c000000 // loop2 	push;				push current r[0] value
+00000102 //		srl r[0], r[0], 0x0004;		r[0] = r[0] >> 4
+10020004 //		beq r[0], r[2], 0x0004;		if r[0]==r[2]: jmp nop
+03E00008 //		jr r[31];			jmp loop2
+30000000 // once:	andi r[0], r[0], 0x0000;	r[0] = 0x0000 | ran by jal once
+34001111 // 		ori r[0], r[0], 0x1111;		r[0] = 0x1111
+03E00008 //		jr r[31];			jmp back to r[31] == 0x1008
+00000000 //	    	nop;

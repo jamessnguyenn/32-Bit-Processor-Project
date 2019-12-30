@@ -1,0 +1,19 @@
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/DA_VINCI_TB/da_vinci_inst/memory_inst/sram_32x64m
+// format=hex addressradix=h dataradix=h version=1.0 wordsperline=1 noaddress
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000001
+00000011
+00000111
+00001111
+00011110
+00008888
+00004444
+00002222
+00001111
